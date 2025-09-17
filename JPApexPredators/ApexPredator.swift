@@ -12,6 +12,8 @@ struct ApexPredator: Decodable {
     let latitude: Double
     let longitude: Double
     let movies: [String]
+    let movieScene: [MovieScene]
+    let link: String
     
     struct MovieScene: Decodable {
         let id: Int
