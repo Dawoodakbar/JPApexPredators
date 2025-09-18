@@ -11,6 +11,7 @@ struct ContentView: View {
     let predators = Predators()
     
     @State var searchText = ""
+    @State var alphabetical = false
     
     var filteredDinos: [ApexPredator] {
         predators.sort(by: alphabetical)
@@ -54,6 +55,18 @@ struct ContentView: View {
             .searchable(text: $searchText)
             .autocorrectionDisabled()
             .animation(.default, value: searchText)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        withAnimation {
+                            alphabetical.toggle()
+                        }
+                    } label: {
+                        Image(systemName: alphabetical ? "film" : "textformat")
+                            .symbolEffect(.bounce, value: alphabetical)
+                    }
+                }
+            }
         }
         .preferredColorScheme(.dark)
     }
