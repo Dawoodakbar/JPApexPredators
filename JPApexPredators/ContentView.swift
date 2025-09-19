@@ -37,7 +37,7 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
-                            .shadow(color: .white, radius: 1)
+                            .shadow(color: .white, radius: 2)
                         VStack(alignment: .leading) {
                             // Dinosaur name
                             Text(predator.name)
@@ -73,7 +73,7 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
-                        Picker("Filter", selection: $currenctSelection) {
+                        Picker("Filter", selection: $currenctSelection.animation()) {
                             ForEach(ApType.allCases) { type in
                                 Label(type.rawValue.capitalized, systemImage: type.icon)
                             }
