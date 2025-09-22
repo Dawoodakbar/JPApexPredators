@@ -28,11 +28,11 @@ struct PredatorMap: View {
             }
         }
         .mapStyle(satellite ? .imagery(elevation: .realistic) : .standard(elevation: .realistic))
-        .overlay {
+        .overlay(alignment: .bottomTrailing) {
             Button {
                 satellite.toggle()
             } label: {
-                Image(systemName: satellite ? "globe.americas.fill" : "globe.amercias")
+                Image(systemName: satellite ? "globe.americas.fill" : "globe.americas")
                     .font(.largeTitle)
                     .imageScale(.large)
                     .padding(3)
